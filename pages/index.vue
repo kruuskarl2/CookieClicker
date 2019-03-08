@@ -8,11 +8,11 @@
     <h3>Per second: {{+perSecond.toFixed(2)}}</h3>
     <br>
     <Upgrade cost="15" add-amount="0.2" label="Upgrade 1"></Upgrade>
-    <Upgrade cost="100" add-amount="5" label="Upgrade 2"></Upgrade>
-    <Upgrade cost="1000" add-amount="50" label="Upgrade 3"></Upgrade>
-    <Upgrade cost="10000" add-amount="600" label="Upgrade 4"></Upgrade>
-    <Upgrade cost="100000" add-amount="5000" label="Upgrade 5"></Upgrade>
-    <Upgrade cost="1000000" add-amount="150000" label="Upgrade 6"></Upgrade>
+    <Upgrade cost="100" add-amount="2" label="Upgrade 2"></Upgrade>
+    <Upgrade cost="1000" add-amount="20" label="Upgrade 3"></Upgrade>
+    <Upgrade cost="10000" add-amount="100" label="Upgrade 4"></Upgrade>
+    <Upgrade cost="100000" add-amount="600" label="Upgrade 5"></Upgrade>
+    <Upgrade cost="1000000" add-amount="2000" label="Upgrade 6"></Upgrade>
   </div>
 </template>
 <script>
@@ -25,7 +25,7 @@ export default {
     setInterval(() => {
       this.setTitle();
       store.dispatch('addToCookies');
-    }, 1000);
+    }, 10);
   },
   methods: {
     incrementCookie() {

@@ -20,7 +20,8 @@ export const actions = {
     context.commit('addToCookieAmount', 1);
   },
   addToCookies(context, amount = null) {
-    if (!amount) amount = context.state.perSecond;
+    // Add cookies for one millisecond
+    if (!amount) amount = context.state.perSecond / 100;
     context.commit('addToCookieAmount', amount);
   }
 }
