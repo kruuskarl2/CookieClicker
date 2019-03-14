@@ -8,8 +8,8 @@
     <h3>Per second: {{+perSecond.toFixed(2)}}</h3>
     <br>
     <Upgrade cost="15" add-amount="0.2" label="Upgrade 1" efficiency-cost="3000"></Upgrade>
-    <Upgrade cost="100" add-amount="2" label="Upgrade 2" efficiency-cost="10000"></Upgrade>
-    <Upgrade cost="1000" add-amount="20" label="Upgrade 3" efficiency-cost="40000"></Upgrade>
+    <Upgrade cost="100" add-amount="2" label="Upgrade 2" efficiency-cost="20000"></Upgrade>
+    <Upgrade cost="1000" add-amount="20" label="Upgrade 3" efficiency-cost="50000"></Upgrade>
     <Upgrade cost="10000" add-amount="100" label="Upgrade 4" efficiency-cost="100000"></Upgrade>
     <Upgrade cost="100000" add-amount="600" label="Upgrade 5" efficiency-cost="500000"></Upgrade>
     <Upgrade cost="1000000" add-amount="5000" label="Upgrade 6" efficiency-cost="10000000"></Upgrade>
@@ -21,21 +21,17 @@ import numeral from 'numeral';
 export default {
   components: { Upgrade },
   created() {
-    this.setTitle();
     const store = this.$store;
     setInterval(() => {
       store.dispatch('addToCookies');
     }, 10);
     setInterval(() => {
-      this.setTitle();
+      document.title = this.beautifiedCookieAmount + " cookies";
     }, 1000)
   },
   methods: {
     incrementCookie() {
       this.$store.dispatch('incrementCookie');
-    },
-    setTitle() {
-      document.title = this.beautifiedCookieAmount + " cookies";
     }
   },
   computed: {

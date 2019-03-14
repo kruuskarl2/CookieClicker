@@ -5,8 +5,9 @@
       <h3>Adds {{realAddAmount}} per second</h3>
       <h3>Costs {{Math.round(realCost)}}</h3>
     </button>
-    <div v-show="upgradeAmount != 0" class="upgradeAmount">
-      <div v-for="index in upgradeAmount" :key="index" class="upgradeIndicator" :class="{ green: upgradedEfficiency }"></div>
+    <div v-show="upgradeAmount != 0" class="upgrade-amount">
+      <p class="upgrade-amount-number" :class="{ 'green--text': upgradedEfficiency }">{{upgradeAmount}}</p>
+      <div v-for="index in upgradeAmount" :key="index" class="upgrade-indicator" :class="{ green: upgradedEfficiency }"></div>
     </div>
     <button
       v-show="!upgradedEfficiency"
@@ -59,16 +60,20 @@ export default {
 </script>
 
 <style scoped>
+.upgrade-amount-number {
+  float: left;
+  margin: -2px 2px;
+}
 .upgrade {
   width: 80%;
   color: white;
   background-color: #ba2323;
 }
-.upgradeAmount {
+.upgrade-amount {
   width: 80%;
   display:inline-block;
 }
-.upgradeIndicator {
+.upgrade-indicator {
   margin: 1px 2px;
   background-color: white;
   height: 14px;
